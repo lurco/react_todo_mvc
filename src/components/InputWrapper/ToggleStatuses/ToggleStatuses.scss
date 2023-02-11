@@ -1,0 +1,33 @@
+@import "../../../scss/functions";
+
+.toggleStatuses {
+    width: toRem(60px);
+    height: toRem(34px);
+    font-size: 0;
+    position: absolute;
+    left: - toRem(13px);
+    transform: rotate(90deg);
+    cursor: pointer;
+
+    &:hover {
+	  &::before {
+	  color: #282c34;
+    }
+    }
+    &::before {
+	  content: '❯';
+	  font-size: toRem(22px);
+	  color: #e6e6e6;
+	  font-style: normal;
+	  padding: toRem(10px) toRem(27px);
+	  transition: all 200ms;
+
+
+    }
+
+    &.done {
+	  &:before {
+		color: #737373;
+	  }
+    }
+}

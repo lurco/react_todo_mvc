@@ -1,0 +1,25 @@
+@import "../../../scss/functions";
+
+.filter-btns__wrapper {
+    display: flex;
+
+
+    .filter-btns {
+	  padding: toRem(5px);
+	  cursor: pointer;
+	  border: #e6e6e6 solid 1px;
+	  border-radius: 5px;
+	  margin-inline: 5px;
+	  color: #e6e6e6;
+	  transition: all 200ms;
+
+	  &--active {
+		color: #737373;
+		border: #737373 solid 1px;
+	  }
+
+	  &:hover {
+		color: #282c34;
+	  }
+    }
+}

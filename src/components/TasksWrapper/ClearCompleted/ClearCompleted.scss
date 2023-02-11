@@ -1,0 +1,14 @@
+@import "../../../scss/functions";
+
+.clear-completed {
+    cursor: pointer;
+
+    &--hidden{
+	visibility: hidden;
+    }
+
+    &:hover {
+	  color: #282c34;
+	  transition: all 200ms;
+    }
+}

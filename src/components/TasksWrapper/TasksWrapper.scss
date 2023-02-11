@@ -1,0 +1,13 @@
+@import "../../../src/scss/functions";
+
+.tasksWrapper {
+    max-width: toRem(500px);
+    width: 100%;
+    margin: auto;
+}
+
+.tasksOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}

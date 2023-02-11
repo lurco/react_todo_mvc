@@ -1,0 +1,55 @@
+@import "../../../../scss/functions";
+
+.task {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;;
+
+    &:hover {
+	  .task__delete-btn {
+		flex-shrink: 1;
+		display: inline-block;
+		cursor: pointer;
+	  }
+    }
+
+    &--done {
+	  text-decoration: line-through;
+	  color: #e2e2e2;
+    }
+
+    &__name {
+	  flex-grow: 5;
+	  display: inline-block;
+
+	  &:focus {
+
+	  }
+    }
+
+    &__status-btn {
+	  align-self: center;
+	  width: toRem(12px);
+	  height: toRem(12px);
+	  margin: toRem(2px) toRem(5px);
+	  border-radius: 10%;
+	  display: inline-block;
+	  cursor: pointer;
+
+	  &--false {
+		background-color: rgba(0, 0, 0, 0.7);
+	  }
+
+
+	  &--true {
+		background-color: rgba(0, 0, 0, 0.1);
+	  }
+
+    }
+
+    &__delete-btn {
+	  color: #737373;
+	  flex-shrink: 1;
+	  display: none;
+    }
+}
