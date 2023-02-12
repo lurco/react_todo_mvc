@@ -1,34 +1,54 @@
 {
   "tasks": [
     {
-      "name": "efefe",
-      "status": false,
+      "name": "fef",
+      "status": true,
+      "id": 1
+    },
+    {
+      "name": "wef",
+      "status": true,
+      "id": 2
+    },
+    {
+      "name": "wfew",
+      "status": true,
+      "id": 3
+    },
+    {
+      "name": "efw",
+      "status": true,
+      "id": 4
+    },
+    {
+      "name": "fewef",
+      "status": true,
+      "id": 5
+    },
+    {
+      "name": "f",
+      "status": true,
+      "id": 6
+    },
+    {
+      "name": "e",
+      "status": true,
+      "id": 7
+    },
+    {
+      "name": "f",
+      "status": true,
       "id": 8
     },
     {
-      "name": "kocham PIS",
-      "status": false,
+      "name": "ef",
+      "status": true,
       "id": 9
     },
     {
-      "name": "fef",
-      "status": false,
+      "name": "ef",
+      "status": true,
       "id": 10
-    },
-    {
-      "name": "wf",
-      "status": false,
-      "id": 11
-    },
-    {
-      "name": "wef",
-      "status": false,
-      "id": 12
-    },
-    {
-      "name": "wef",
-      "status": false,
-      "id": 13
     }
   ],
   "statuses": []

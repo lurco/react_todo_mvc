@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import Header from "./components/Header/Header";
 import InputWrapper from "./components/InputWrapper/InputWrapper";
 import TasksWrapper from "./components/TasksWrapper/TasksWrapper";
-import {addTaskAPI, getAllTasksAPI} from "./helpers/api.js";
+import {addTaskAPI, changeStatusAPI, deleteTaskAPI, getAllTasksAPI} from "./helpers/api.js";
 
 function App() {
 
@@ -18,19 +18,15 @@ function App() {
         }
     }, []);
 
-    async function deleteTaskAPI(taskID) {
-        const response = await fetch(`http://localhost:3001/tasks/${taskID}`, {method: 'DELETE'});
-
-        return await response.json();
-    }
 
     async function handleAddTask(value) {
         const task = await addTaskAPI({name: value, status: false});
         setTasks([...tasks, task]);
     }
 
-    function handleChangeStatus(task) {
+    async function handleChangeStatus(task) {
         task.status = !task.status;
+        await changeStatusAPI(task.id, task.status);
         setTasks([...tasks]);
     }
 
@@ -58,12 +54,19 @@ function App() {
         setTasks(filteredTasks);
     }
 
-    function handleAllDone() {
+    async function handleAllDone() {
         let done = tasks.every((task) => task.status === true);
-        setTasks(tasks.map((task) => ({...task, status: !done})));
+        const mappedTasks = [];
+
+        for (const task of tasks) {
+            mappedTasks.push({...task, status: !done});
+            await changeStatusAPI(task.id, !done);
+        }
+
+        setTasks(mappedTasks);
     }
 
-    // CONTENT ========================================================================
+// CONTENT ========================================================================
 
     return (
         <>

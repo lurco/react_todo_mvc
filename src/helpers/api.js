@@ -3,7 +3,7 @@ export async function getAllTasksAPI(signal) {
     return await response.json();
 }
 
-export async function addTaskAPI(task){
+export async function addTaskAPI(task) {
     const response = await fetch('http://localhost:3001/tasks',
         {
             method: 'POST',
@@ -12,5 +12,23 @@ export async function addTaskAPI(task){
             },
             body: JSON.stringify(task)
         })
+    return await response.json();
+}
+
+export async function deleteTaskAPI(taskID) {
+    const response = await fetch(`http://localhost:3001/tasks/${taskID}`, {method: 'DELETE'});
+
+    return await response.json();
+}
+
+export async function changeStatusAPI(taskID, status) {
+    const response = await fetch(`http://localhost:3001/tasks/${taskID}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({status})
+    });
+
     return await response.json();
 }
