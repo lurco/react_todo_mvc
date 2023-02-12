@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Details from "./components/Details/Details";
+import DetailsEdit from "./components/Details/DetailsEdit";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     {
         path: "/details/:id",
         element: <Details/>
+    },
+    {
+        path: "/details/:id/edit",
+        element: <DetailsEdit/>
     },
 ]);
 

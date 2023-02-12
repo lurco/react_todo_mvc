@@ -4,7 +4,9 @@
       "name": "pomidory",
       "status": true,
       "createAt": "2023-02-12T13:41:02.803Z",
-      "id": 1
+      "id": 1,
+      "createdAt": null,
+      "description": "effewf"
     },
     {
       "name": "papryka",

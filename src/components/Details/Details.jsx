@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {resolvePath, useNavigate, useParams} from "react-router-dom";
+import {Link, resolvePath, useNavigate, useParams} from "react-router-dom";
 import moment from "moment";
 import {deleteTaskAPI, getTaskAPI} from "../../helpers/api";
 
@@ -36,7 +36,7 @@ function Details() {
                     <h1>{task.name}</h1>
                     <span>Created at: {moment(new Date(task.createAt), "YYYY-MM-DD").fromNow()}</span><span>{task.status}</span>
                     <p>{task.description}</p>
-                    <button>Edit</button>
+                    <Link to={`/details/${id}/edit`}>Edit</Link>
                     <button onClick={toggleModal}>Delete</button>
                 </>
             )}

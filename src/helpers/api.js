@@ -37,3 +37,15 @@ export async function getTaskAPI(id) {
     const response = await fetch(`http://localhost:3001/tasks/${id}`);
     return await response.json();
 }
+
+export async function editTaskAPI(task){
+    const response = await fetch(`http://localhost:3001/tasks/${task.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    })
+
+    return await response.json();
+}
