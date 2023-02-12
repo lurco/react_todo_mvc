@@ -20,7 +20,7 @@ function App() {
 
 
     async function handleAddTask(value) {
-        const task = await addTaskAPI({name: value, status: false});
+        const task = await addTaskAPI({name: value, status: false, createAt: new Date()});
         setTasks([...tasks, task]);
     }
 

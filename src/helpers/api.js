@@ -32,3 +32,8 @@ export async function changeStatusAPI(taskID, status) {
 
     return await response.json();
 }
+
+export async function getTaskAPI(id) {
+    const response = await fetch(`http://localhost:3001/tasks/${id}`);
+    return await response.json();
+}
