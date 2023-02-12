@@ -1,38 +1,32 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Header from "./components/Header/Header";
 import InputWrapper from "./components/InputWrapper/InputWrapper";
 import TasksWrapper from "./components/TasksWrapper/TasksWrapper";
-
-function* genId() {
-    let id = 0;
-
-    while (true) {
-        yield id;
-        id++;
-    }
-}
-
-const nextId = genId();
+import {addTaskAPI, getAllTasksAPI} from "./helpers/api.js";
 
 function App() {
 
-    const [value, setValue] = useState('');
     const [tasks, setTasks] = useState([]);
     const [filter, setFilter] = useState('all');
 
-    function handleInput(event) {
-        setValue(event.target.value);
+    useEffect(() => {
+        const controller = new AbortController();
+        getAllTasksAPI(controller.signal).then(setTasks);
+
+        return () => {
+            controller.abort();
+        }
+    }, []);
+
+    async function deleteTaskAPI(taskID) {
+        const response = await fetch(`http://localhost:3001/tasks/${taskID}`, {method: 'DELETE'});
+
+        return await response.json();
     }
 
-    function handleAddTask(event) {
-        if (event.key === 'Enter') {
-            setTasks([...tasks, {
-                id: nextId.next().value,
-                name: value,
-                status: false,
-            }]);
-            setValue('');
-        }
+    async function handleAddTask(value) {
+        const task = await addTaskAPI({name: value, status: false});
+        setTasks([...tasks, task]);
     }
 
     function handleChangeStatus(task) {
@@ -45,12 +39,23 @@ function App() {
         setTasks(tasks.map((task) => task.id === taskEdited.id ? taskEdited : task));
     }
 
-    function handleDeleteTask(taskToRemove) {
+    async function handleDeleteTask(taskToRemove) {
+        await deleteTaskAPI(taskToRemove.id);
         setTasks(tasks.filter((task) => task !== taskToRemove));
     }
 
-    function handleDeleteAllTasks() {
-        setTasks(tasks.filter((task) => !task.status));
+    async function handleDeleteAllTasks() {
+        const filteredTasks = [];
+
+        for (const task of tasks) {
+            if (task.status) {
+                await deleteTaskAPI(task.id);
+            } else {
+                filteredTasks.push(task);
+            }
+        }
+
+        setTasks(filteredTasks);
     }
 
     function handleAllDone() {
@@ -66,8 +71,6 @@ function App() {
             <InputWrapper
                 handleAllDone={handleAllDone}
                 handleAddTask={handleAddTask}
-                handleInput={handleInput}
-                value={value}
             />
             <TasksWrapper
                 tasks={tasks}
@@ -81,5 +84,6 @@ function App() {
         </>
     );
 }
-    // CONTENT =========================================================================
+
+// CONTENT =========================================================================
 export default App;

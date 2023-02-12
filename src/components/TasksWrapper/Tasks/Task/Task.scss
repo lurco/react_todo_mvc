@@ -3,13 +3,14 @@
 .task {
     list-style: none;
     display: flex;
-    justify-content: flex-start;;
+    justify-content: flex-start;
 
     &:hover {
 	  .task__delete-btn {
 		flex-shrink: 1;
 		display: inline-block;
 		cursor: pointer;
+		text-decoration: none;
 	  }
     }
 
