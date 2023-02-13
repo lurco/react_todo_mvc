@@ -2,29 +2,23 @@
   "tasks": [
     {
       "name": "pomidory",
-      "status": true,
+      "status": false,
       "createAt": "2023-02-12T13:41:02.803Z",
       "id": 1,
       "createdAt": null,
       "description": "effewf"
     },
     {
-      "name": "papryka",
-      "status": true,
-      "createAt": "2023-02-12T13:41:04.932Z",
-      "id": 2
-    },
-    {
       "name": "ser",
-      "status": true,
+      "status": false,
       "createAt": "2023-02-12T13:41:14.990Z",
       "id": 4
     },
     {
-      "name": "f",
+      "name": "ziemniaki",
       "status": false,
-      "createAt": "2023-02-12T14:34:55.394Z",
-      "id": 5
+      "createAt": "2023-02-13T10:23:42.798Z",
+      "id": 6
     }
   ],
   "statuses": []

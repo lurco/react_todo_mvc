@@ -8,21 +8,23 @@
     &:hover {
 	  .task__delete-btn {
 		flex-shrink: 1;
-		display: inline-block;
+		visibility: visible;
 		cursor: pointer;
-		text-decoration: none;
 	  }
     }
 
     &--done {
-	  text-decoration: line-through;
-	  color: #e2e2e2;
+	  a {
+		text-decoration: line-through;
+		color: #e2e2e2;
+	  }
     }
 
     &__name {
 	  flex-grow: 5;
 	  display: inline-block;
 	  text-decoration: none;
+	  color: inherit;
 
 	  &:focus {
 
@@ -50,8 +52,11 @@
     }
 
     &__delete-btn {
+	  font-family: 'Brush Script MT', cursive;
+	  text-decoration: none;
+	  font-weight: lighter;
 	  color: #737373;
 	  flex-shrink: 1;
-	  display: none;
+	  visibility: hidden;
     }
 }

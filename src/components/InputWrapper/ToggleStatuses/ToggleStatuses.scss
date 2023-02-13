@@ -1,13 +1,11 @@
 @import "../../../scss/functions";
 
 .toggleStatuses {
-    width: toRem(60px);
-    height: toRem(34px);
+    flex-shrink: 5;
     font-size: 0;
     position: absolute;
-    left: - toRem(13px);
     transform: rotate(90deg);
-    cursor: pointer;
+    padding: toRem(18px) toRem(18px) toRem(30px) toRem(18px);
 
     &:hover {
 	  &::before {
@@ -15,11 +13,15 @@
     }
     }
     &::before {
+    cursor: pointer;
+	  display: block;
 	  content: '❯';
+	  margin: auto;
+	  width: 100%;
+	  height: 100%;
 	  font-size: toRem(22px);
 	  color: #e6e6e6;
 	  font-style: normal;
-	  padding: toRem(10px) toRem(27px);
 	  transition: all 200ms;
 
 

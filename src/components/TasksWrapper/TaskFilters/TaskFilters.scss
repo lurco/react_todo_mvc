@@ -13,9 +13,13 @@
 	  color: #e6e6e6;
 	  transition: all 200ms;
 
-	  &--active {
+	  &.filter-btns--active {
 		color: #737373;
 		border: #737373 solid 1px;
+
+		&:hover {
+		    color: black;
+		}
 	  }
 
 	  &:hover {

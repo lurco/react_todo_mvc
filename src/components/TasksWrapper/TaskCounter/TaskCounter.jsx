@@ -1,11 +1,20 @@
 import './TaskCounter.scss'
+
 function TaskCounter({tasks}) {
-    return (
-        <span>
-            {tasks.filter((task) => !task.status).length}
-            {` item${tasks.filter((task) => !task.status).length === 1 ? '' : 's'}`} left
+    const taskCount = tasks.filter((task) => !task.status).length;
+    if (taskCount === 1) {
+        return (
+            <span className="taskCounter">
+            {`1 item left`}
         </span>
-    );
+        );
+    } else {
+        return (
+            <span className="taskCounter">
+            {`${taskCount} items left`}
+        </span>
+        );
+    }
 }
 
 export default TaskCounter;
