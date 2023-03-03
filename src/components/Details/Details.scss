@@ -1,0 +1,164 @@
+@import "../../scss/functions";
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.details__form {
+    display: flex;
+    flex-flow: column;
+}
+
+.details {
+    &__wrapper {
+	  width: 100%;
+	  max-width: 500px;
+	  margin-inline: auto;
+	  margin-top: toRem(50px);
+	  display: flex;
+	  flex-flow: column;
+    }
+
+    &__top {
+	  display: flex;
+	  justify-content: space-around;
+	  align-items: center;
+    }
+
+    &__exit {
+	  flex-grow: 20;
+	  text-align: right;
+	  font-family: 'Brush Script MT', cursive;
+	  text-decoration: none;
+	  font-weight: lighter;
+	  font-size: toRem(35px);
+	  color: #737373;
+	  transition: all 200ms;
+
+	  &:hover {
+		color: black;
+	  }
+    }
+
+    &__hdl-lbl {
+	  flex-grow: 1;
+	  font-weight: lighter;
+    }
+
+    &__status-lbl {
+	  flex-grow: 1;
+	  font-weight: lighter;
+    }
+
+    &__createAt-lbl {
+	  flex-grow: 1;
+	  font-weight: lighter;
+    }
+
+    &__desc-lbl {
+	  flex-grow: 1;
+	  font-weight: lighter;
+    }
+
+
+    &__btns {
+	  display: flex;
+	  justify-content: space-around;
+	  padding-inline: toRem(100px);
+
+	  a {
+		text-decoration: none;
+		padding: toRem(5px);
+		border: #787c84 solid 1px;
+		border-radius: 5px;
+		margin-inline: 5px;
+		color: #787c84;
+		transition: all 200ms;
+
+		&:hover {
+		    color: black;
+		}
+	  }
+    }
+}
+
+.modal {
+    &__btns {
+	  display: flex;
+	  justify-content: space-around;
+
+    }
+
+    &__lbl {
+	  text-align: center;
+	  font-weight: lighter;
+	  padding-top: toRem(20px);
+    }
+
+    &__hdl {
+	  padding: toRem(20px);
+	  text-align: center;
+
+    }
+
+    &__cancel {
+	  background-color: inherit;
+	  text-decoration: none;
+	  padding: toRem(5px);
+	  border: #787c84 solid 1px;
+	  border-radius: 5px;
+	  margin-inline: 5px;
+	  color: #787c84;
+	  transition: all 200ms;
+	  cursor: pointer;
+
+	  &:hover {
+		color: black;
+	  }
+
+    }
+
+    &__confirm {
+	  background-color: inherit;
+	  text-decoration: none;
+	  padding: toRem(5px);
+	  border: #787c84 solid 1px;
+	  border-radius: 5px;
+	  margin-inline: 5px;
+	  color: #787c84;
+	  transition: all 200ms;
+	  cursor: pointer;
+
+	  &:hover {
+		color: black;
+	  }
+    }
+}
+
+.form {
+    &__name, &__date, &__desc, &__submit {
+	  margin-top: toRem(20px);
+	  border-radius: toRem(5px);
+	  border: #737373 solid 1px;
+	  outline: #282c34 solid 1px;
+    }
+
+    &__submit {
+	  width: toRem(100px);
+	  margin-inline: auto;
+	  background-color: inherit;
+	  text-decoration: none;
+	  padding: toRem(5px);
+	  border: #787c84 solid 1px;
+	  border-radius: 5px;
+	  color: #787c84;
+	  &:hover {
+		color: black;
+	  }
+    }
+}

@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
-import Header from "./components/Header/Header";
-import InputWrapper from "./components/InputWrapper/InputWrapper";
-import TasksWrapper from "./components/TasksWrapper/TasksWrapper";
 import {addTaskAPI, changeStatusAPI, deleteTaskAPI, getAllTasksAPI} from "./helpers/api.js";
+import {Route, Routes} from "react-router-dom";
+import Details from "./components/Details/Details";
+import Layout from "./Layout";
+import DetailsEdit from "./components/Details/DetailsEdit";
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
 
 
     async function handleAddTask(value) {
-        const task = await addTaskAPI({name: value, status: false, createAt: new Date()});
+        const task = await addTaskAPI({name: value, status: false, createFAt: new Date()});
         setTasks([...tasks, task]);
     }
 
@@ -69,13 +70,10 @@ function App() {
 // CONTENT ========================================================================
 
     return (
-        <>
-            <Header/>
-            <InputWrapper
+        <Routes>
+            <Route path="/" element={<Layout
                 handleAllDone={handleAllDone}
                 handleAddTask={handleAddTask}
-            />
-            <TasksWrapper
                 tasks={tasks}
                 filter={filter}
                 handleChangeStatus={handleChangeStatus}
@@ -83,9 +81,16 @@ function App() {
                 setFilter={setFilter}
                 handleDeleteAllTasks={handleDeleteAllTasks}
                 handleEditTask={handleEditTask}
-            />
-        </>
-    );
+            />}>
+                <Route path="/details/:id" element={<Details
+                    tasks={tasks}
+                    setTasks={setTasks}
+                />}/>
+                <Route path="/details/:id/edit" element={<DetailsEdit/>}/>
+                <Route index path="/" element=""></Route>
+            </Route>
+        </Routes>
+);
 }
 
 // CONTENT =========================================================================
